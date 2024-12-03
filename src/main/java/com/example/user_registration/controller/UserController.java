@@ -1,5 +1,6 @@
 package com.example.user_registration.controller;
 
+import com.example.user_registration.dto.request.UserRegisterRequestDto;
 import com.example.user_registration.dto.response.DefaultResponse;
 import com.example.user_registration.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -17,5 +18,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping(value = "/register")
-    public ResponseEntity<DefaultResponse> registration(@Valid @RequestBody )
+    public ResponseEntity<DefaultResponse> registration(@Valid @RequestBody UserRegisterRequestDto registerRequestDto) {
+
+    }
 }
