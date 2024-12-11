@@ -4,7 +4,6 @@ import com.example.user_registration.utils.ResponseCodeUtil;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.jetbrains.annotations.Contract;
 
 import java.util.HashMap;
 
@@ -17,7 +16,6 @@ public class DefaultResponse {
     private String message;
     private Object data;
 
-    @Contract(pure = true)
     public DefaultResponse() {
     }
 
