@@ -9,6 +9,7 @@ import com.example.user_registration.utils.ResponseCodeUtil;
 import com.example.user_registration.utils.ResponseUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
 
     public BaseResponse<HashMap<String, Object>> registration(UserRegisterRequestDto registerRequest) {
