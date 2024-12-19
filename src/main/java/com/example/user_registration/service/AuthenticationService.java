@@ -1,6 +1,6 @@
 package com.example.user_registration.service;
 
-import com.example.user_registration.dto.request.AuthenticationRequest;
+import com.example.user_registration.dto.request.AuthenticationRequestDto;
 import com.example.user_registration.dto.request.UserRegisterRequestDto;
 import com.example.user_registration.dto.response.AuthenticationResponse;
 import com.example.user_registration.entity.User;
@@ -20,6 +20,8 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+
+    //user registration
     public AuthenticationResponse register(UserRegisterRequestDto registerRequest) {
         var user = User.builder()
                 .name(registerRequest.getName())
@@ -33,7 +35,8 @@ public class AuthenticationService {
                 .build();
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
+    //user login
+    public AuthenticationResponse authenticate(AuthenticationRequestDto authenticationRequest) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         authenticationRequest.getEmail(),
